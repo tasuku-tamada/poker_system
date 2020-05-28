@@ -3,8 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
+    <c:if test="${flush != null}">
+       <div id="flush_success">
+           <c:out value="${flush}"></c:out>
+       </div>
+    </c:if>
         <h2>プレイ記録</h2>
-        <table border=0 id="play_log">
+        <table id="play_log">
                 <tr>
                     <th class="player_name">氏名</th>
                     <td class="player_name"><c:out value="${player.name}" /></td>

@@ -5,9 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "m_player")
+@NamedQueries({
+    @NamedQuery(
+            name = "checkLoginNameAndPassword",
+            query = "SELECT p FROM Player AS p WHERE p.name = :name AND p.password = :pass"
+            )
+})
 @Entity
 public class Player {
     @Id

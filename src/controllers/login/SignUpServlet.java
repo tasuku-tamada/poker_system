@@ -60,7 +60,7 @@ public class SignUpServlet extends HttpServlet {
                             )
                     );
 
-            List<String> errors = PlayerValidator.validate(p, true, true);
+            List<String> errors = PlayerValidator.validate(p);
             if(errors.size() > 0) {
                 em.close();
 

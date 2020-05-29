@@ -16,7 +16,7 @@
                 </tr>
                 <tr>
                     <th class="player_coin">所持コイン数</th>
-                    <td class="player_coin"><c:out value="${player.coin}" /></td>
+                    <td class="player_coin"><c:out value="${player.coin}" />枚</td>
                 </tr>
                 <tr>
                     <th class="best_double_up">最高ダブルアップ回数</th>

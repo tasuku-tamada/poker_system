@@ -34,7 +34,7 @@ public class Player {
     private String password;
 
     @Column(name = "coin", nullable = false)
-    private int coin = 0;
+    private int coin = 100;
 
     public Integer getId() {
         return id;

@@ -13,15 +13,15 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "checkLoginNameAndPassword",
-            query = "SELECT p FROM Player AS p WHERE p.name = :name AND p.password = :pass"
+            query = "SELECT p FROM Player_m AS p WHERE p.name = :name AND p.password = :pass"
             ),
     @NamedQuery(
             name = "nameDuplicateCheck",
-            query = "SELECT COUNT(p) FROM Player AS p WHERE p.name = :name"
+            query = "SELECT COUNT(p) FROM Player_m AS p WHERE p.name = :name"
             )
 })
 @Entity
-public class Player {
+public class Player_m {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

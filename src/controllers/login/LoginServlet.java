@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Player;
+import models.Player_m;
 import utils.DBUtil;
 import utils.EncryptUtil;
 
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
         String name = request.getParameter("name");
         String plain_pass = request.getParameter("password");
 
-        Player p = null;
+        Player_m p = null;
 
         if(name != null && !name.equals("") && plain_pass != null && !plain_pass.equals("")) {
             EntityManager em = DBUtil.createEntityManager();
@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 
             // 社員番号とパスワードが正しいかチェックする
             try {
-                p = em.createNamedQuery("checkLoginNameAndPassword", Player.class)
+                p = em.createNamedQuery("checkLoginNameAndPassword", Player_m.class)
                       .setParameter("name", name)
                       .setParameter("pass", password)
                       .getSingleResult();

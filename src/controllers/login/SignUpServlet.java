@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Player;
+import models.Player_m;
 import models.validators.PlayerValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
@@ -51,7 +51,7 @@ public class SignUpServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Player p = new Player();
+            Player_m p = new Player_m();
             p.setName(request.getParameter("name"));
             p.setPassword(
                     EncryptUtil.getPasswordEncrypt(

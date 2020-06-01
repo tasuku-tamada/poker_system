@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 
-@Table(name = "m_hand")
+@Table(name = "m_role")
 @NamedQueries({
 
 })
 @Entity
-public class Hand {
+public class Role_m {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

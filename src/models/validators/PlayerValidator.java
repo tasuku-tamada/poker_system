@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import models.Player;
+import models.Player_m;
 import utils.DBUtil;
 
 public class PlayerValidator {
-    public static List<String> validate(Player p) {
+    public static List<String> validate(Player_m p) {
         List<String> errors = new ArrayList<String>();
 
         String name_error = _validateName(p.getName());

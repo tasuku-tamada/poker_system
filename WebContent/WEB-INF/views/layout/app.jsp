@@ -13,7 +13,7 @@
             <div id="header">
                 <div id="header_menu">
                     <h1><a href="<c:url value='/' />">ポーカー</a></h1>&nbsp;&nbsp;&nbsp;
-                    <a href="<c:url value='/bet' />">プレイ</a>&nbsp;
+                    <a href="<c:url value='/play/bet' />">プレイ</a>&nbsp;
                 </div>
                 <c:if test="${sessionScope.login_player != null}">
                     <div id="employee_name">

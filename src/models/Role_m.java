@@ -2,11 +2,12 @@ package models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.Table;
+
+import utils.DBUtil;
 
 @Table(name = "m_role")
 @NamedQueries({
@@ -16,7 +17,6 @@ import javax.persistence.Table;
 public class Role_m {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name", nullable = false)
@@ -24,6 +24,13 @@ public class Role_m {
 
     @Column(name = "magnification", nullable = false)
     private int magnification;
+
+    public static Role_m getRole(int id){
+        EntityManager em = DBUtil.createEntityManager();
+        Role_m role = em.find(Role_m.class, id);
+        em.close();
+        return role;
+    }
 
     public Integer getId() {
         return id;
@@ -48,5 +55,4 @@ public class Role_m {
     public void setMagnification(int magnification) {
         this.magnification = magnification;
     }
-
 }

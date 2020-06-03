@@ -35,19 +35,21 @@ public class PlayDataFilter implements Filter {
     /**
      * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
      */
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
         // TODO Auto-generated method stub
         // place your code here
-        String servlet_path = ((HttpServletRequest)request).getServletPath();
+        String servlet_path = ((HttpServletRequest) request).getServletPath();
 
         //プレイ以外にアクセスした場合
-        if(!servlet_path.matches("/play.*")){
-            HttpSession session = ((HttpServletRequest)request).getSession();
-
-            //sesionのplayerとdealerを削除
-            session.removeAttribute("player");
-            session.removeAttribute("dealer");
-            System.out.println("delete PlayData");
+        if (!servlet_path.matches("/play.*")) {
+            HttpSession session = ((HttpServletRequest) request).getSession();
+            if (session.getAttribute("player") != null) {
+                //sesionのplayerとdealerを削除
+                session.removeAttribute("player");
+                session.removeAttribute("dealer");
+                System.out.println("delete PlayData");
+            }
         }
         // pass the request along the filter chain
         chain.doFilter(request, response);

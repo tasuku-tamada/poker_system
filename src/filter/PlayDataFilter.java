@@ -42,13 +42,16 @@ public class PlayDataFilter implements Filter {
         String servlet_path = ((HttpServletRequest) request).getServletPath();
 
         //プレイ以外にアクセスした場合
-        if (!servlet_path.matches("/play.*")) {
+        if (!(servlet_path.matches("/play.*") || servlet_path.matches("/css.*") ||servlet_path.matches("/js.*")
+                ||servlet_path.matches("/images.*"))) {
             HttpSession session = ((HttpServletRequest) request).getSession();
             if (session.getAttribute("player") != null) {
                 //sesionのplayerとdealerを削除
                 session.removeAttribute("player");
                 session.removeAttribute("dealer");
                 System.out.println("delete PlayData");
+                System.out.println(servlet_path);
+
             }
         }
         // pass the request along the filter chain

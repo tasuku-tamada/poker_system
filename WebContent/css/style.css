@@ -188,3 +188,16 @@ h3 {
 
     border-radius: 10px;
 }
+.role_name{
+    width:20em;
+}
+.card_img{
+    width:100%;
+    margin:0px;
+}
+.change_0{
+    text-align:center;
+}
+.change_0 button{
+    background:rgba(#69696950);
+}

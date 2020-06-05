@@ -5,13 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import utils.DBUtil;
 
 @Table(name = "m_role")
 @NamedQueries({
-
+    @NamedQuery(
+        name = "getAllRole",
+        query = "SELECT r FROM Role_m AS r"
+    )
 })
 @Entity
 public class Role_m {
